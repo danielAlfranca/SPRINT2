@@ -1,0 +1,238 @@
+/* CUSTOM VARIABLES */
+
+$primary: #5265E1;
+$secondary: #FA5959;
+$dark:#242946;
+// BUTTONS
+$btn-font-weight: bold;
+$btn-font-size: 0.9rem;
+// ACCORDIONS
+$accordion-button-icon: url("/images/icon-arrow.svg");
+$accordion-button-active-icon: url("/images/icon-arrow-active.svg");
+$accordion-icon-active-color: $secondary;
+$accordion-button-active-bg: transparent;
+$accordion-button-active-color: $dark;
+$accordion-button-focus-border-color: transparent;
+$accordion-button-focus-box-shadow: none;
+// TOOGLER
+$navbar-light-toggler-icon-bg: url("/images/icon-hamburger.svg");
+$navbar-light-toggler-border-color: rgba($dark,
+0);
+// NAV
+$nav-link-color: $dark;
+$nav-link-hover-color: $secondary;
+$navbar-light-color: $dark;
+$navbar-light-hover-color: $secondary;
+$nav-tabs-link-hover-border-color: transparent;
+// BUTTONS
+$btn-white-space: nowrap;
+
+/* BOOTSTRAP BASIC IMPORTS */
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/utilities";
+
+/* BOOTSTRAP MODIFICACIONES */
+
+// MIN HEIGHT POR VHs
+$utilities: map-merge( $utilities,
+( "min-viewport-height": map-merge( map-get($utilities, "min-viewport-height"),
+( values: map-merge( map-get(map-get($utilities, "min-viewport-height"), "values"), (50: 50vh), ), ),
+),
+));
+
+/* BOOTSTRAP GENERAL IMPORTS */
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* CUSTOM SYLES */
+
+// BUTTONS
+.btn-primary {
+    @include button-variant( $primary,
+    darken($primary,
+    7.5%),
+    $light,
+    $light,
+    $primary,
+    $primary,
+    $primary,
+    $primary);
+}
+
+.btn-secondary {
+    @include button-variant( $secondary,
+    darken($secondary,
+    7.5%),
+    $light,
+    $light,
+    $secondary,
+    $secondary,
+    $secondary,
+    $secondary);
+}
+
+
+/* HEADER */
+
+header .btn:hover {
+    color: $secondary !important;
+}
+
+
+/* BANNER */
+
+.h-bar-left,
+.h-bar-right {
+    height: 75%;
+    border-radius: 10rem;
+    bottom: 0;
+    z-index: -1;
+    left: 0;
+    width: 200%;
+    margin-right: -100%;
+}
+
+.h-bar-left {
+    margin-left: -25%;
+    left: 0;
+    bottom: 3rem;
+    height: 75%;
+    border-radius: 0 10rem 10rem 0;
+}
+
+
+/* TABS */
+
+.custom-tabs.nav-tabs {
+    border-bottom: none;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.custom-tabs .nav-item {
+    border: solid 1px rgb(207, 207, 207);
+    border-style: solid none;
+    width: 100%;
+    margin-top: -1px;
+}
+
+.custom-tabs .nav-link {
+    border: none;
+    opacity: 0.9;
+}
+
+.custom-tabs .nav-link.active,
+.custom-tabs .nav-link:hover,
+.custom-tabs .nav-link:active,
+.custom-tabs .nav-link:focus {
+    border: none;
+    opacity: 1;
+    color: $secondary;
+}
+
+.custom-tabs .nav-link.active {
+    color: $black;
+    border-bottom: solid 4px $secondary;
+}
+
+
+/* CTA */
+
+%articleItem {
+    width: 100%;
+    max-width: 18rem;
+    margin-bottom: 1rem
+}
+
+article {
+    @extend %articleItem;
+}
+
+.article-text {
+    border-bottom-style: dashed !important;
+}
+
+
+/* FAQS */
+
+.accordion {
+    max-width: 40rem;
+}
+
+.accordion-button:hover {
+    color: $secondary;
+}
+
+
+/* EMAIL GETTER  */
+
+.email-getter-center>p {
+    letter-spacing: 3px;
+}
+
+.email-getter-center>.form-group>input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #e0e0e2;
+}
+
+.email-getter-center>.form-group>input::-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #e0e0e2;
+}
+
+.email-getter-center>.form-group>input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #e0e0e2;
+}
+
+.form-control:invalid:placeholder-shown {
+    border: none;
+    background-image: none;
+    box-shadow: none;
+}
+
+.form-control:invalid {
+    background-image: inherit;
+}
+
+.email-getter-center input:placeholder-shown+.invalid-feedback {
+    display: none!important;
+}
+
+
+/* FOOTER  */
+
+.iconFooter {
+    fill: white;
+}
+
+.iconFooter:hover {
+    fill: $secondary;
+}
+
+footer .nav-link {
+    color: $light;
+}
+
+@media screen and (min-width:992px) {
+    .custom-tabs .nav-item {
+        border: none;
+        width: auto;
+    }
+    .h-bar-left {
+        bottom: 0;
+    }
+    .text-hero {
+        max-width: 32rem;
+    }
+    article {
+        &:nth-child(2) {
+            margin-top: 1.5rem;
+        }
+        &:nth-child(3) {
+            margin-top: 3rem;
+        }
+    }
+}
